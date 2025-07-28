@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Чеширский Кот</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <video autoplay muted loop id="background-video">
+    <source src="media/foncat.mp4" type="video/mp4">
+  </video>
+  <header class="hero">
+    <div class="burger" onclick="toggleMenu()">&#9776;</div>
+    <div class="hero-title" id="logoArea" onclick="logoDisappears()">
+      <img src="media/logo.png" alt="logo" class="logo" />
+      <h1 id="mainTitle">Чеширский Кот</h1>
+    </div>
+    <p class="subtitle">Organic. Quality. Magic</p>
+  </header>
+
+  <aside id="side-menu" class="side-menu">
+    <div class="close-btn" onclick="toggleMenu()">✖</div>
+    <nav>
+      <a href="#pricing" id="menuPricing">Прайс-лист</a>
+      <a href="#links" id="menuLinks">Наши ссылки</a>
+      <a href="#faq" id="menuFAQ">FAQ/О нас</a>
+      <a href="#reviews" id="menuReviews">Отзывы</a>
+    </nav>
+
+    <div class="settings">
+      <div class="toggle-group">
+        <label class="toggle-label">Тема</label>
+        <div class="slider-wrap" onclick="toggleTheme()">
+          <div class="slider-thumb" id="themeThumb"></div>
+          <div class="slider-text">Dark</div>
+          <div class="slider-text right">Light</div>
+        </div>
+      </div>
+      <div class="toggle-group">
+        <label class="toggle-label">Язык</label>
+        <div class="slider-wrap" onclick="toggleLanguage()">
+          <div class="slider-thumb" id="langThumb"></div>
+          <div class="slider-text">RU</div>
+          <div class="slider-text right">KZ</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <section class="intro" data-aos="fade-up">
+    <h2 id="introTitle">Лучший органический магазин в Казахстане</h2>
+    <p id="introText">Алматы и Астана — выбирают нас!<br>Погрузитесь в мир натурального качества</p>
+  </section>
+
+  <section class="pricing" id="pricing" data-aos="fade-up">
+    <h2 id="pricingTitle">Прайс-лист</h2>
+    <div class="slider">
+      <div class="slider-track" id="sliderTrack">
+        <div class="price-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="media/crumble.jpeg" alt="Crumble (Wax)">
+          <h3 id="product1Title">Crumble (Wax)</h3>
+          <p id="product1Price">0.5г - 29$<br>1г - 50$</p>
+          <button class="btn-curious" onclick="openProductModal('Crumble (Wax)')">Узнать больше</button>
+        </div>
+        <div class="price-card" data-aos="fade-up" data-aos-delay="300">
+          <img src="media/hash.jpeg" alt="Гаш импорт">
+          <h3 id="product2Title">Гаш импорт</h3>
+          <p id="product2Price">Нет в наличии</p>
+          <button class="btn-curious" onclick="openProductModal('Гаш импорт')">Узнать больше</button>
+        </div>
+        <div class="price-card" data-aos="fade-up" data-aos-delay="500">
+          <img src="media/wax.jpg" alt="Wax Мёд">
+          <h3 id="product3Title">Wax Мёд</h3>
+          <p id="product3Price">0.5г - 20$<br>1г - 37$</p>
+          <button class="btn-curious" onclick="openProductModal('Wax Мёд')">Узнать больше</button>
+        </div>
+      </div>
+    </div>
+    <button class="btn-curious" onclick="prevSlide()" style="margin-top: 10px;">Предыдущий</button>
+    <button class="btn-curious" onclick="nextSlide()" style="margin-top: 20px;">Следующий</button>
+  </section>
+
+  <section class="links" id="links" data-aos="zoom-in">
+    <h2 id="linksTitle">Наши ссылки</h2>
+    <div class="link-block">
+      <div class="paw-trail"></div>
+      <a href="https://t.me/Cheshyrs" class="link-btn" target="_blank">Оператор (Купить)</a>
+      <a href="https://t.me/Cheshyrs" class="link-btn" target="_blank">Наш чат (Алмата)</a>
+      <a href="https://t.me/Cheshyrs" class="link-btn" target="_blank">Наш чат (Астана)</a>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" data-aos="fade-up">
+    <h2 id="faqTitle">FAQ/О нас</h2>
+    <p>Мы — «Чеширский Кот», ваш надежный партнер в мире органических товаров. Наши продукты включают натуральные чаи, мёд акации и травяные сборы, собранные из экологически чистых регионов Казахстана.</p>
+    <p><strong>Оплата:</strong> Принимаем только криптовалюту. Если есть вопросы, наши операторы помогут вам разобраться!</p>
+    <p><strong>О товарах:</strong> Все продукты проходят строгий контроль качества, чтобы гарантировать вам лучшее.</p>
+  </section>
+
+  <section class="reviews" id="reviews" data-aos="fade-up">
+    <h2 id="reviewsTitle">Отзывы с рейтингом 5</h2>
+    <div class="review-form">
+      <input type="text" id="reviewName" placeholder="Имя (необязательно)">
+      <textarea id="reviewText" placeholder="Ваш отзыв" rows="4" required></textarea>
+      <button type="button" onclick="submitReview()">Отправить</button>
+    </div>
+    <div id="reviewsList" class="reviews-list"></div>
+  </section>
+
+  <footer>
+    <p id="footerText">&copy; 2024 Чеширский Кот</p>
+  </footer>
+
+  <div class="back-to-top" onclick="scrollToTop()">↑</div>
+
+  <div class="modal" id="productModal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <h3 id="modalProductTitle"></h3>
+      <p id="modalProductDescription"></p>
+      <button class="btn-curious" onclick="closeModal()">Закрыть</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
