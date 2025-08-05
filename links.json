@@ -1,0 +1,26 @@
+[
+  {
+    "id": "operator",
+    "href": "https://t.me/operator_link",
+    "text": "Оператор (Купить) 🐾",
+    "class": "cyan"
+  },
+  {
+    "id": "channel",
+    "href": "https://t.me/channel_link",
+    "text": "Наш канал 🐾",
+    "class": "green"
+  },
+  {
+    "id": "chat-almaty",
+    "href": "https://t.me/chat_almaty_link",
+    "text": "Чат (Алмата) 🐾",
+    "class": "pink"
+  },
+  {
+    "id": "chat-astana",
+    "href": "",
+    "text": "Чат (Астана) 🐾",
+    "class": "unavailable"
+  }
+]
